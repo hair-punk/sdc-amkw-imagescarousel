@@ -3,6 +3,8 @@ import React from 'react';
 
 function OneRelatedImage ({image, imgUrls, handleRelatedImageClick}) {
 
+
+
   const styles = {
     backgroundImage: `url(${image})`
    }
