@@ -1,0 +1,68 @@
+
+
+html, body, #container, .carousel {
+	height:100%;
+	margin: 0;
+	width: 100%;
+}
+
+
+.slider {
+	max-height: 100%;
+	max-width: 100%;
+	transition: background-image .3s ease-in-out;
+}
+.carousel {
+	position: relative;
+	display: block;
+}
+
+.slide-arrow {
+	font-family: "Nanum Gothic";
+	color: white;
+	cursor: pointer;
+	font-size: 2rem;
+	position: absolute;
+	top: 50%;
+	background-color: #c8c8c8;
+	padding: 20px 15px 20px 15px;
+	opacity: 0.6;
+
+}
+
+
+
+.slide-arrow.right:hover, .slide-arrow.left:hover {
+	background-color: #acacac;
+	transition: 1s;
+	top: 50%;
+
+}
+
+.slide-arrow.right {
+	right: 1rem;
+	border-radius: 3px 0 0 3px;
+}
+
+.slide-arrow.left {
+	left: 1rem;
+	border-radius: 0 3px 3px 0;
+}
+
+.media-object, #container {
+	max-width: 400px;
+	max-height: 400px;
+}
+
+.related-image {
+	max-width: 60px;
+	float: left;
+	margin: 10px;
+	align-content: center;
+	cursor: pointer;
+}
+
+.related-images-container {
+	display: flex;
+	justify-content: center;
+}

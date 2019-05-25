@@ -8,4 +8,4 @@ const LeftArrow = ({clickFunction, image}) => (
 </div>
 )
 
-export default LeftArrow
+export default LeftArrow;
