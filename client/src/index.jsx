@@ -29,7 +29,7 @@ class ImageCarousel extends React.Component {
   async componentDidMount() {
     try {
       //fetches images from database and pushes them into the imgUrls array
-      let response = await fetch('/product-images');
+      let response = await fetch('http://localhost:3001/product-images');
       let pictures = await response.json();
       let images = pictures.images
       let imageColl = [];
@@ -82,12 +82,12 @@ class ImageCarousel extends React.Component {
 
   render () {
     return (
-    <div className="carousel">
+    <div className="carousel" style={{position: 'relative', display: 'block'}}>
 
       <LeftArrow
         clickFunction={this.previousSlide}
         image='&#60;'/>
-      <Slider url={this.state.imgUrls[this.state.currentImageIndex]} />
+      <Slider  url={this.state.imgUrls[this.state.currentImageIndex]} />
       <RightArrow clickFunction={this.nextSlide}
         image='&#62;'/>
         <Related
@@ -101,4 +101,4 @@ class ImageCarousel extends React.Component {
   }
 }
 
-ReactDOM.render(<ImageCarousel />, document.getElementById('app'))
+ReactDOM.render(<ImageCarousel className="image-carousel-component"/>, document.getElementById("cis-app"))

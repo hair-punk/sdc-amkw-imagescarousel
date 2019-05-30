@@ -1,6 +1,11 @@
 import React from 'react';
 import OneRelatedImage from './OneRelatedImage.jsx';
 
+const styles = {
+  display: 'flex',
+  justifyContent: 'center',
+}
+
 const RelatedImages = ({url, imgUrls, handleRelatedImageClick}) => {
 
   return (
@@ -8,6 +13,7 @@ const RelatedImages = ({url, imgUrls, handleRelatedImageClick}) => {
       {url.map((image) =>
         <OneRelatedImage
           image={image}
+          style={styles}
           imgUrls={imgUrls}
           handleRelatedImageClick={handleRelatedImageClick}
 
