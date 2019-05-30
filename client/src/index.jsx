@@ -82,6 +82,12 @@ class ImageCarousel extends React.Component {
 
   render () {
     return (
+      <div id="container" style={{
+      height: '100%',
+      margin: '0',
+      width: '100%',
+      maxWidth: '400px',
+      minHeight: '400px'}}>
     <div className="carousel" style={{position: 'relative', display: 'block'}}>
 
       <LeftArrow
@@ -96,6 +102,7 @@ class ImageCarousel extends React.Component {
           handleRelatedImageClick={this.handleRelatedImageClick}
 
         />
+    </div>
     </div>
     )
   }
