@@ -6,7 +6,12 @@ function OneRelatedImage ({image, imgUrls, handleRelatedImageClick}) {
 
 
   const styles = {
-    backgroundImage: `url(${image})`
+    bacwkgroundImage: `url(${image})`,
+    maxWidth: '60px',
+	  float: 'left',
+	  margin: '10px',
+	  alignContent: 'center',
+	  cursor: 'pointer',
    }
    let array = imgUrls.slice(index+2, index+6)
   let index = imgUrls.indexOf(image)

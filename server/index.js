@@ -6,7 +6,11 @@ const db = require('../database/index.js');
 
 
 
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 // console.log(seeding)
 
 app.use(express.static(__dirname + '/../public/dist'));
