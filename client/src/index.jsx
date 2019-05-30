@@ -86,8 +86,8 @@ class ImageCarousel extends React.Component {
       height: '100%',
       margin: '0',
       width: '100%',
-      maxWidth: '400px',
-      minHeight: '400px'}}>
+      maxWidth: '500px',
+      minHeight: '500px'}}>
     <div className="carousel" style={{position: 'relative', display: 'block'}}>
 
       <LeftArrow

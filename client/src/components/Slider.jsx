@@ -3,8 +3,9 @@ import React from 'react';
 const Slider = ({url}) => {
   const styles = {
    backgroundImage: `url(${url})`,
-   maxWidth: '400px',
-	 minHeight: '400px',
+   maxWidth: '500px',
+   minHeight: '500px',
+   maxHeight: '500px',
   }
 
   return (
