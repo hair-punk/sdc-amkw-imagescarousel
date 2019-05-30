@@ -1,18 +1,6 @@
 import React from 'react';
 
-// const rightArrowStyle = {
-//   fontFamily: "Nanum Gothic",
-//   color: 'white',
-//   cursor: 'pointer',
-//   fontSize: '2rem',
-//   position: 'absolute',
-//   top: '50%',
-//   backgroundColor: '#c8c8c8',
-//   padding: '20px 15px 20px 15px',
-//   opacity: '0.6',
-//   right: '1rem',
-// 	borderRadius: '3px 0 0 3px',
-// }
+
 
 class RightArrow extends React.Component {
   constructor({props}) {
