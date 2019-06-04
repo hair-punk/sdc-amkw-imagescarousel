@@ -30,6 +30,15 @@ app.get('/product-images', function (req,res, next) {
   })
 })
 
+app.get();
+
+app.post();
+
+// replaces file as opposed to PATCH
+app.put();
+
+app.delete();
+
 
 let port = process.env.PORT || 3001;
 
