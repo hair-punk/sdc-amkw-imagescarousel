@@ -1,2 +1,4 @@
 node_modules
-awsconfig.json
+DS_Store
+
+database/awsconfig.json
