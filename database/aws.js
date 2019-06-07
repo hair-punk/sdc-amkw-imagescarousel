@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 //configuring the AWS environment
 //This function will retrieve the Credentials from awsconfig.json.
-//These credentials have been created in Amazon S3. The name of the Bucket is the name of the Bucket created in S3 where I have previously stored 100 images related to products.
+//These credentials have been created in Amazon S3. The name of the Bucket is the name of the Bucket created in S3 where I have previously stored full-sized and thumbnail images related to products.
 
 const seeder = async function () {
   try {
