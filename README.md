@@ -19,9 +19,8 @@
 - GET /product-images (retrieves all images)
 - GET /product-images/:productid (retrieves all images related to product with specified id)
 - POST /product-images/:productid (posts an images to the set of images at the specified product id)
-- PUT /product-images/:productid/:imageid (updates the image at the specified imageid for the specified product id)
+- PUT /product-images/:productid (overwrites that images for the specified product id with passed in image(s))
 - DELETE /product-images/:productid (delete all images for the specified product id)
-- DELETE /product-images/:productid/:imageid (delete the image at the specified imageid for the specified product id)
 
 ## Usage
 
