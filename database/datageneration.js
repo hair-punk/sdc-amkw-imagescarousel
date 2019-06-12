@@ -29,30 +29,32 @@ const writeCSV = async function (numRecords, iteration, offset) {
       // pick a product type
       let types = Object.keys(imageTypeStorage);
       var type = types[Math.floor(Math.random()*types.length)];
-      // pick 8 random image numbers
+      // pick 8 random image numbers of type
       const imageNums = new Set();
-      while (imageNums.size <= 8) {
+      while (imageNums.size < 8) {
         imageNums.add(Math.floor(Math.random() * imageCountStorage[`${type}-150`]) + 1);
       }
 
       // generate a record
       let images = '';
       imageNums.forEach((num) => {
+        // paths to images and corresponding thumbnails
         images += `,${type}-530-${num},${type}-150-${num}`;
       });
       csvStr += `${i+(iteration*offset)}${images}\n`;
       file.write(csvStr);
       csvStr = '';
     }
+    console.log('in writeCSV');
   } catch (e) {
     console.log('Error:', e);
   }
 };
 
-for (let j = 0; j < 2; j++) {
-  writeCSV(1e6);
-}
+// writeCSV(5);
 
 // file.on('close', function () {
 //   console.log('All done!');
 // });
+
+module.exports.writeCSV = writeCSV;
