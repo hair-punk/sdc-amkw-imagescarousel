@@ -1,12 +1,18 @@
 const writeCSV = require('../datageneration');
-const dbsetup = require('./dbsetup');
+// const dbsetup = require('./dbsetup');
 const writedb = require('./writedb');
 
-const seed = () => {
-//   for (let j = 0; j < 1; j++) {
-//     writeCSV(2);
-//     // loadFromCSV(table);
-//   }
+const seed = async (numRecords, iterations) => {
+  console.time("Time seed");
+  numRecords = numRecords || 5;
+  iterations = iterations || 1;
+  // await dbsetup();
+  // for (let i = 0; i < iterations; i++) {
+    await writeCSV(numRecords, 9);
+    await writedb();
+  // }
+  console.timeEnd("Time seed");
 };
 
-seed();
+
+seed(1e6,10);

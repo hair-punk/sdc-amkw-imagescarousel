@@ -24,7 +24,8 @@ const writeCSV = async function (numRecords, iteration, offset) {
     }
     const file = fs.createWriteStream(__dirname + `/data/mockdata.csv`, { flags: 'w' });
 
-    let csvStr = `gameId,imagePath1,thumbnailPath1,imagePath2,thumbnailPath2,imagePath3,thumbnailPath3,imagePath4,thumbnailPath4,imagePath5,thumbnailPath5,imagePath6,thumbnailPath6,imagePath7,thumbnailPath7,imagePath8,thumbnailPath8\n`;
+    let csvStr = '';
+    // let csvStr = `gameId,imagePath1,thumbnailPath1,imagePath2,thumbnailPath2,imagePath3,thumbnailPath3,imagePath4,thumbnailPath4,imagePath5,thumbnailPath5,imagePath6,thumbnailPath6,imagePath7,thumbnailPath7,imagePath8,thumbnailPath8\n`;
     for (let i = 0; i < numRecords; i++) {
       // pick a product type
       let types = Object.keys(imageTypeStorage);
@@ -57,4 +58,4 @@ const writeCSV = async function (numRecords, iteration, offset) {
 //   console.log('All done!');
 // });
 
-module.exports.writeCSV = writeCSV;
+module.exports = writeCSV;
