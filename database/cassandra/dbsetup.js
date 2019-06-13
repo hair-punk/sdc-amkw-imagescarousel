@@ -1,0 +1,3 @@
+const cassandra = require('cassandra-driver');
+
+// cqlsh: imagecarousel > copy images(id, imagePath1, thumbnailPath1, imagePath2, thumbnailPath2, imagePath3, thumbnailPath3, imagePath4, thumbnailPath4, imagePath5, thumbnailPath5, imagePath6, thumbnailPath6, imagePath7, thumbnailPath7, imagePath8, thumbnailPath8) from '/Users/alyssawei/Documents/local_HR/SDC/sdc-amkw-imagescarousel/database/data/mockdata.csv';

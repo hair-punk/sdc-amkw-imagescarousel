@@ -8,11 +8,11 @@ const seed = async (numRecords, iterations) => {
   iterations = iterations || 1;
   // await dbsetup();
   // for (let i = 0; i < iterations; i++) {
-    await writeCSV(numRecords, 9);
-    await writedb();
+    await writeCSV(numRecords,9);
+    // await writedb();
   // }
   console.timeEnd("Time seed");
 };
 
 
-seed(1e6,10);
+seed(1e6);
