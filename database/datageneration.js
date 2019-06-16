@@ -2,10 +2,10 @@ const AWS = require('aws-sdk');
 const fs = require('fs');
 
 // currently storing full-sized (530 px) and thumbnail (150px) images in ASW S3 bucket
+
 const writeCSV = async function (numRecords, iteration, offset) {
   iteration = iteration || 0;
   offset = offset || numRecords;
-
   try {
     AWS.config.loadFromPath(__dirname + '/awsconfig.json');
     s3 = new AWS.S3();

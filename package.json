@@ -1,7 +1,7 @@
 {
-  "name": "github-fec-2-hrr38-images-carousel",
-  "version": "1.0.0",
-  "description": "",
+  "name": "sdc-amkw-imagescarousel",
+  "version": "2.0.0",
+  "description": "hrr38 project Betsy emulator -- back end for image carousel module",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",
@@ -10,8 +10,8 @@
     "seed:postgres": "node database/postgres/postgresSeed.js",
     "test": "node ./node_modules/mocha/bin/mocha"
   },
-  "author": "Ignacio Senese",
-  "license": "whatever",
+  "author": "Alyssa Wei",
+  "license": "UNLICENSED",
   "devDependencies": {
     "babel-core": "^6.23.1",
     "babel-loader": "^6.3.2",
