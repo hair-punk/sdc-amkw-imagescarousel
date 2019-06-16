@@ -4,15 +4,15 @@ var { Pool } = require('pg');
 const copyFrom = require('pg-copy-streams').from;
 const config = require('./postgresconfig.json');
 
-const writedb = async () => {
+const writedb = async (iteration) => {
   const host = config.host;
   const user = config.user;
   const pw = config.pw;
-  const db = 'imagecarousel';
+  const db = 'sdctest';
   const port = config.port;
   const connectionURI = `postgresql://${user}:${pw}@${host}:${port}/${db}`;
 
-  var inputFile = path.join(__dirname, '../data/mockdata.csv');
+  var inputFile = path.join(__dirname, `../data/mockdatatest.csv`);
   const targetTable = 'images';
 
   const pool = new Pool({
