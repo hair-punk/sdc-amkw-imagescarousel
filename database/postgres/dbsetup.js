@@ -35,10 +35,8 @@ const dbsetup = async () => {
     .then(() => { return client.query('CREATE TABLE IF NOT EXISTS ' + mytable + ' (id INT PRIMARY KEY, imagepath1 VARCHAR (20) NOT NULL,thumbnailpath1 VARCHAR (20) NOT NULL,imagepath2 VARCHAR (20) NOT NULL,thumbnailpath2 VARCHAR (20) NOT NULL,imagepath3 VARCHAR (20) NOT NULL,thumbnailpath3 VARCHAR (20) NOT NULL,imagepath4 VARCHAR (20) NOT NULL,thumbnailpath4 VARCHAR (20) NOT NULL,imagepath5 VARCHAR (20) NOT NULL,thumbnailpath5 VARCHAR (20) NOT NULL,imagepath6 VARCHAR (20) NOT NULL,thumbnailpath6 VARCHAR (20) NOT NULL,imagepath7 VARCHAR (20) NOT NULL,thumbnailpath7 VARCHAR (20) NOT NULL,imagepath8 VARCHAR (20) NOT NULL,thumbnailpath8 VARCHAR (20) NOT NULL)')})
     .then(() => console.log('table created'))
     .then(() => { client.end() })
-    .then(() => console.log('client ended'))
+    .then(() => console.log(`client ended\n====================`))
     .catch(err => console.error(err))
 };
-
-// dbsetup();
 
 module.exports = dbsetup;

@@ -1,34 +1,27 @@
-const fs = require('fs');
+var pg = require('pg');
 const path = require('path');
-var { Pool } = require('pg');
-const copyFrom = require('pg-copy-streams').from;
 const config = require('./postgresconfig.json');
 
-const writedb = async (iteration) => {
+const writedb = async (done) => {
   const host = config.host;
   const user = config.user;
   const pw = config.pw;
   const db = 'sdctest';
   const port = config.port;
-  const connectionURI = `postgresql://${user}:${pw}@${host}:${port}/${db}`;
+  const connection = `postgresql://${user}:${pw}@${host}:${port}/${db}`;
 
   var inputFile = path.join(__dirname, `../data/mockdatatest.csv`);
   const targetTable = 'images';
 
-  const pool = new Pool({
-    connectionString: connectionURI,
-  });
-
-  pool.connect(function (err, client, done) {
+  const client = new pg.Client(connection);
+  await client.connect((err, connection) => {
     if (err) return console.error(err);
-    var stream = client.query(copyFrom(`COPY ${targetTable} (id, imagepath1,thumbnailpath1,imagepath2,thumbnailpath2,imagepath3,thumbnailpath3,imagepath4,thumbnailpath4,imagepath5,thumbnailpath5,imagepath6,thumbnailpath6,imagepath7,thumbnailpath7,imagepath8,thumbnailpath8) FROM STDIN CSV`));
-    var fileStream = fs.createReadStream(inputFile);
-    fileStream.on('error', done);
-    stream.on('error', done);
-    stream.on('end', done);
-    fileStream.pipe(stream);
-    console.log('in writedb');
-  });
+    console.log('postgress connected')
+  })
+
+  await client.query(`COPY ${targetTable} (id, imagepath1,thumbnailpath1,imagepath2,thumbnailpath2,imagepath3,thumbnailpath3,imagepath4,thumbnailpath4,imagepath5,thumbnailpath5,imagepath6,thumbnailpath6,imagepath7,thumbnailpath7,imagepath8,thumbnailpath8) FROM '${inputFile}' DELIMITER ','`);
+
+  await client.end();
 };
 
 module.exports = writedb;
