@@ -2,7 +2,7 @@ const express = require('express');
 let app = express();
 const bodyParser = require ('body-parser');
 const db = require('../database/index.js');
-// const seeding = require('../database/aws.js')
+const Images = require('../server/imagesController');
 
 
 
@@ -30,7 +30,15 @@ app.get('/product-images', function (req,res, next) {
   })
 })
 
-app.get();
+app.get('/product-images/:id', function (req, res, next) {
+  let id = req.params.id;
+  Images.get(id, (data) => {
+    // TODO parse data
+    // TODO get signed urls
+    console.log('data for client', data);
+    res.json(data);
+  });
+});
 
 app.post();
 

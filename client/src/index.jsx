@@ -29,8 +29,9 @@ class ImageCarousel extends React.Component {
   async componentDidMount() {
     try {
       //fetches images from database and pushes them into the imgUrls array
-      let response = await fetch('http://localhost:3001/product-images');
-      let pictures = await response.json();
+      let id = Math.floor(Math.random()*10000000);
+      let response = await fetch(`http://localhost:3001/product-images/${id}`);
+      let picturePaths = '';// await response.json(); TODO parse object
       let images = pictures.images
       let imageColl = [];
       images.forEach(function(image){
@@ -41,10 +42,10 @@ class ImageCarousel extends React.Component {
       })
       //will place the first image of the collection on the slider
       //will pick the next 4 following images for the related images below the big one
-     this.setState ({
+    this.setState ({
       currentImageIndex: 0,
       relatedImages: this.state.imgUrls.slice(2,6)
-     })
+    })
     } catch (err) {
       console.error('Encountered error fetching product images', err);
     }
