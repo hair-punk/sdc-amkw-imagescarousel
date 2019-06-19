@@ -23,17 +23,13 @@ var Images = {
   get: async function(id, callback) {
     await client.query(`SELECT * FROM ${mytable} WHERE id=${id}`)
     .then((result) => {
-      console.log('my result from db:', result.rows[0]);
+      // console.log('my result from db:', result.rows[0]);
       callback(result.rows[0]);
     })
     .catch(err => console.error(err))
   }
 
 };
-
-// Images.get(1, (data) => {
-//   console.log('data', data);
-// });
 
 module.exports = Images;
 

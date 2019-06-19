@@ -19,8 +19,7 @@ class ImageCarousel extends React.Component {
   this.handleRelatedImageClick = this.handleRelatedImageClick.bind(this)
   }
 
-  handleRelatedImageClick ( index) {
-
+  handleRelatedImageClick (index) {
     this.setState({
       currentImageIndex: index
     })
@@ -28,24 +27,15 @@ class ImageCarousel extends React.Component {
 
   async componentDidMount() {
     try {
-      //fetches images from database and pushes them into the imgUrls array
+      // let id = 1e7 - 1;
       let id = Math.floor(Math.random()*10000000);
       let response = await fetch(`http://localhost:3001/product-images/${id}`);
-      let picturePaths = '';// await response.json(); TODO parse object
-      let images = pictures.images
-      let imageColl = [];
-      images.forEach(function(image){
-        imageColl.push(image.url)
-      })
+      let picturePaths = await response.json();
+      let images = picturePaths[0].fullimages;
       this.setState ({
-        imgUrls : imageColl
+        imgUrls: images,
+        relatedImages: images
       })
-      //will place the first image of the collection on the slider
-      //will pick the next 4 following images for the related images below the big one
-    this.setState ({
-      currentImageIndex: 0,
-      relatedImages: this.state.imgUrls.slice(2,6)
-    })
     } catch (err) {
       console.error('Encountered error fetching product images', err);
     }
@@ -60,7 +50,6 @@ class ImageCarousel extends React.Component {
 
     this.setState ({
       currentImageIndex: index,
-      relatedImages: this.state.imgUrls.slice(this.state.currentImageIndex+2, this.state.currentImageIndex+6)
     })
 
   }
@@ -74,12 +63,8 @@ class ImageCarousel extends React.Component {
 
     this.setState ({
       currentImageIndex: index,
-      relatedImages: this.state.imgUrls.slice(this.state.currentImageIndex+2, this.state.currentImageIndex+6)
     })
-
   }
-
-
 
   render () {
     return (
@@ -87,24 +72,21 @@ class ImageCarousel extends React.Component {
       height: '100%',
       margin: '0',
       width: '100%',
-      maxWidth: '500px',
+      maxWidth: '700px',
       minHeight: '500px'}}>
-    <div className="carousel" style={{position: 'relative', display: 'block'}}>
-
-      <LeftArrow
-        clickFunction={this.previousSlide}
-        image='&#60;'/>
-      <Slider  url={this.state.imgUrls[this.state.currentImageIndex]} />
-      <RightArrow clickFunction={this.nextSlide}
-        image='&#62;'/>
-        <Related
-          url={this.state.relatedImages}
-          imgUrls={this.state.imgUrls}
-          handleRelatedImageClick={this.handleRelatedImageClick}
-
-        />
-    </div>
-    </div>
+        <div className="carousel" style={{position: 'relative', display: 'block'}}>
+          < LeftArrow
+            clickFunction={this.previousSlide}
+            image='&#60;'/>
+          < Slider  url={this.state.imgUrls[this.state.currentImageIndex]} />
+          < RightArrow clickFunction={this.nextSlide}
+            image='&#62;'/>
+          < Related
+            url={this.state.relatedImages}
+            imgUrls={this.state.imgUrls}
+            handleRelatedImageClick={this.handleRelatedImageClick} />
+        </div>
+      </div>
     )
   }
 }
