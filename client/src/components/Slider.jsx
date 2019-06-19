@@ -2,10 +2,11 @@ import React from 'react';
 
 const Slider = ({url}) => {
   const styles = {
-   backgroundImage: `url(${url})`,
-   maxWidth: '500px',
-   minHeight: '500px',
-   maxHeight: '500px',
+    backgroundImage: `url(${url})`,
+    maxWidth: '500px',
+    minHeight: '500px',
+    maxHeight: '500px',
+    marginLeft: '100px',
   }
 
   return (
