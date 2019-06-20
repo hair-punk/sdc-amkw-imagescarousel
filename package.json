@@ -1,7 +1,7 @@
 {
   "name": "sdc-amkw-imagescarousel",
   "version": "2.0.0",
-  "description": "hrr38 project Betsy emulator -- back end for image carousel module",
+  "description": "Betsy goods selling service -- back end for image carousel module",
   "main": "index.js",
   "scripts": {
     "react-dev": "webpack -d --watch",

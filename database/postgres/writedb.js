@@ -6,11 +6,11 @@ const writedb = async (done) => {
   const host = config.host;
   const user = config.user;
   const pw = config.pw;
-  const db = 'sdctest';
+  const db = 'sdcimagecarousel';
   const port = config.port;
   const connection = `postgresql://${user}:${pw}@${host}:${port}/${db}`;
 
-  var inputFile = path.join(__dirname, `../data/mockdatatest.csv`);
+  var inputFile = path.join(__dirname, `../data/mockdata.csv`);
   const targetTable = 'images';
 
   const client = new pg.Client(connection);

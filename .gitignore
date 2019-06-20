@@ -4,8 +4,8 @@ DS_Store
 database/awsconfig.json
 database/postgres/postgresconfig.json
 
-database/data
-
+database/data/mockdata.csv
+database/data/mockdatatest.csv
 
 // testing
 k6test.js

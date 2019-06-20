@@ -10,7 +10,7 @@ const dbsetup = async () => {
   const port = config.port;
   const connectionURI = `postgresql://${user}:${pw}@${host}:${port}/${db}`;
 
-  const mydb = 'sdctest'
+  const mydb = 'sdcimagecarousel'
   const mytable = 'images';
 
   // Connecting to Database

@@ -16,4 +16,4 @@ const seed = async (numRecords, iterations) => {
 };
 
 
-seed(1e6,10);
+seed(1e6,3);
