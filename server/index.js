@@ -1,3 +1,4 @@
+const nr = require('newrelic');
 const express = require('express');
 let app = express();
 const bodyParser = require ('body-parser');
@@ -34,7 +35,7 @@ app.get('/product-images/:id', function (req, res, next) {
   let id = req.params.id;
   Images.get(id, async (data) => {
     const formattedData = await formatData(data);
-    console.log('data for client', formattedData);
+    // console.log('data for client', formattedData);
     res.json(formattedData);
   });
 });
